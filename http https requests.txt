@@ -1,0 +1,33 @@
+
+ there are 5 major classes of objects in http module
+
+    http
+
+        Server
+
+            is what used to create a basic server
+
+            inherits from `net.Server` and it's an event emitter
+
+        ServerRespose
+
+            gets created internally by the http server
+
+            implements `WritableStream` interface and it's an event emitter
+
+        Agent
+
+            uses to manage pulling sockets used in `http.ClientRequests`
+
+            node uses `globalAgent` by default but the different agend can be created with the different options that
+            needed to by `new Agent()`
+
+        ClientRequest
+
+            on request initiation
+
+            implements `WritableStream` inteface and it's an event emitter
+
+        IncomingMessage
+
+            implements `ReadableStream` interface and it's an event emitter

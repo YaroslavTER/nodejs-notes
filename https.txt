@@ -1,0 +1,33 @@
+
+    is the HTTP protocol over TLS SSL
+
+    node has specific module to work with HTTPS called `https`
+
+    createServer()
+
+        to create the server you have to specify object with properties `key` and `cert` (certificate).
+        You can also pass `pfx` option to combine `key` and `cert`.
+
+            params object
+    
+                you have to load files to assign the `key`, `cert` properties using `fs.readFileSycn()` method and pass as the params
+                relative filepath to the `.pem` file
+
+        to generate certificate you can use OpenSSL tool
+
+            OpenSSL allows to generate a private key, we can have it encrypted or not encrypted and it allows to generate a certificate
+            signing request and then self sign certificate to test it. The broser will not trust selfmade certificate, but it's good for
+            testing purposes
+
+            command for private key and certificate generation
+
+                `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes`
+
+    listen()
+
+        server has 443 as a default port for HTTPS communication
+
+    to execute the HTTPS script you have to run it as a root `sudo node https.js`
+
+    after execution the script and visiting `https://localhost/` the broser will warn you about self made certificate
+    but you can specify that you trust it to see the script result

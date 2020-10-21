@@ -1,0 +1,4 @@
+
+    `req.url` can be used to get the route
+
+    for routes managing purposes can be used `switch` statement

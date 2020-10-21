@@ -1,0 +1,43 @@
+
+    node has specific module to work with HTTP called `http`. You can require it and create the server using `.createServer()`
+
+    createServer()
+
+        is an event emmiter
+
+        on
+    
+            request
+        
+                triggers on every client request and recieves callback with `response`, `request` parameters
+
+    listen()
+
+        specifies the listening port of the server     
+
+    headers
+
+        connection
+    
+            keep alive
+
+                the connection to the server will be persisted. The TCP connection will not be killed
+                after a requester recieves response so that they can send multiple requests on the same connection
+
+        transfer-encoding
+
+            chuked
+
+                is used to send vairable length response text. The response is being streamed
+
+    res
+
+        end
+
+            terminates the reponse. Have to do it for every requrest, if not the request will be timed out
+
+    server
+
+        timeout
+
+            you can specify timeout for the server by assigning the numeric value to this property
