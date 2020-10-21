@@ -1,0 +1,15 @@
+useful asynchronous functions
+
+    every time the event loop takes a full trop, it calls a tick
+
+    process.nextTick
+
+        invokes at the end of the current operation, before the next event loop tick starts
+
+    setTimeout
+
+        invokes after it passes the event loop
+
+    setImmediate
+    
+        invokes on the next tick of the event loop

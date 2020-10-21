@@ -1,0 +1,49 @@
+node
+
+    VMs
+
+        v8 (default)
+            
+            you can see the available options by executing commmand `node --v8-options`
+
+            useful functions
+
+                `v8.getHeapStatistics()`
+
+        chakra 
+
+    consists of
+
+        v8
+    
+            via c++ API
+
+        core modules
+
+            file system
+
+            network
+
+            timers
+
+        libuv (C library)
+
+            provides event loop
+
+        other dependencies
+
+            http-parser (C library)
+ 
+                parsing http messages. Works for both requests and responses. Designed to have small pre-request memory footprint
+
+            c-ares
+
+                performing asynchronous DNS queries
+
+            OpenSSL
+
+                provides implementations for many cryptographic functions
+
+            zlib
+
+                compration and decomprations interfaces

@@ -1,0 +1,17 @@
+EventEmitter
+
+    is a class that lets you yo emit events. The `EventEmitter` calls all listeners synchronously in the order in which the were registered. But the listener can be switched to the asynchronous mode once it used `setImmediate()` or `process.nextTick()`, or `setTimeout()` methods
+
+    methods
+
+        emit
+
+            emit the named event
+
+        on
+
+            set the callback that will be executed on `emit` for named event
+
+        once
+
+            set the callback for named event that will be called only one time. Useful for `uncaughtException` event

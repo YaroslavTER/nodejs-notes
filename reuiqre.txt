@@ -1,0 +1,88 @@
+`require()`
+
+    it's a function that takes module name or path and returns the exports object
+
+    you can override it to make mocked module
+
+        ```javascript
+        require = function() {
+            return { mocked: true };
+        };
+        ```
+
+    `require.resolve('')` does not load the file. Uses to check whether the following package installed or not
+
+    you can create folder which contains `index.js` and if you require the folder name the `index.js` will be loaded.
+    `index.js` is reserved filename and you can specify main file name in the `package.json` file
+
+    there is the `module` object that contains information about the module in every file
+
+    you can't use exports object inside timers        
+
+    there are following steps that require goes throught:
+
+        Resolving
+
+            to find absolute file path of a module
+
+        Loading
+
+            is determined by the content of the file at the resolved path
+
+        Wrapping
+
+            is what gives every module it's private scope and what makes `require` local to every module.
+            Before compiling module, node wrapps module code in the function. It can be accessed by the `.wrapper` property of the required module `require('module').wrapper`. Keeps every to variable of the module scoped to it. Also it makes `exports`, `require`, `module` as a global variable
+
+                ```javascript
+                (function(exports, require, module, __filename, __dirname) {
+                    // Module code actually lives in here
+                });
+                ``` 
+
+        Evaluating
+
+            is what VM eventually does with the code
+
+        Cahing
+
+            if the module will be required again the steps above will be omitted and file won't be loaded.
+            
+            where it stores
+
+                in the `require.cache` property
+
+            how to clear cache
+
+                `delete require.cache['fullFilePath']` is not sufficient
+
+                the best way is to wrap exported code into function that exports, and on `require` just call the function `require('module')()`
+
+                    ```javascript
+                    module.exports = () => {
+                        //exported code that won't be cached
+                    }
+                    ```
+
+    resolving module import vithout extension
+
+        if execute `reuire('file')`. the nodejs will loock the `file.js` module in the `.path` property of the `module` object. All of the paths in the `path` property contains `node_modules` folder as a tail folder. If it can't find the module in all of these paths, the node throws an error
+
+        core modules are exception. Resolve step returns immediately
+
+        type priority:
+
+            .js
+
+                just compiles content
+
+            .json
+
+                uses `JSON.parse` on the content
+
+            .node
+
+                uses `process.dlopen`
+
+                it will interpret the file as a compiled addon module written in C++
+

@@ -1,0 +1,14 @@
+export
+
+    `exports` is a variable reference to the `module.exports` object
+
+    you can use `exports` to export properties, but you can't reassign `exports` with the object
+
+    `exports.id = 1` is valid
+
+    `exports = { id: 1 }` is not valid, because if to change the whole `exports` variable, it won't longer be the reference to the `module.exports` object
+
+    to be able to reassgin the `exports` with the object, you have to use `module.exports`
+
+    by default, variables defined in the scope of the file, won't be available outside the module.
+    Only the thinks that are exported are available 

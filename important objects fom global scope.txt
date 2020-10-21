@@ -1,0 +1,46 @@
+important objects from the global scope:
+    
+    process
+
+        is an event evmmiter
+
+        .on()
+            
+            exit
+            
+                can do only syncronous operations inside this event handler
+
+            uncaughtException
+
+                for uncaught exceptions handling
+
+                use `process.exit(1)` inside this event handler
+
+    Buffer
+
+        uses to work with binary streams of data. Is a chunk of a memory, allocated outside the v8 heap.
+        can not be resized once it allocated
+
+        it useful when you have to read thinks like an image file from tcp stream or compressed file.
+        Or any othe form of binary access
+
+        memory allocation
+
+            .alloc()
+
+                creates a filled buffer of certain size
+
+            .allocUnsafe()
+
+                will not fill the created buffer and have to be filled by `.fill()`.
+                It has cleare performance advantages
+
+            .from()
+
+        .slice()
+
+            sliced buffer shares the same memory with the original buffer
+
+
+        when converting streams of binary data we should use the String Decoder module. In general,
+        if you receiving utf-8 bites as chunks in a stream you should always use string decoder
