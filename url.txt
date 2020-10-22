@@ -1,0 +1,53 @@
+
+    url elements
+
+        ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+        │                                              href                                              │
+        ├──────────┬──┬─────────────────────┬────────────────────────┬───────────────────────────┬───────┤
+        │ protocol │  │        auth         │          host          │           path            │ hash  │
+        │          │  │                     ├─────────────────┬──────┼──────────┬────────────────┤       │
+        │          │  │                     │    hostname     │ port │ pathname │     search     │       │
+        │          │  │                     │                 │      │          ├─┬──────────────┤       │
+        │          │  │                     │                 │      │          │ │    query     │       │
+        "  https:   //    user   :   pass   @ sub.example.com : 8080   /p/a/t/h  ?  query=string   #hash "
+        │          │  │          │          │    hostname     │ port │          │                │       │
+        │          │  │          │          ├─────────────────┴──────┤          │                │       │
+        │ protocol │  │ username │ password │          host          │          │                │       │
+        ├──────────┴──┼──────────┴──────────┼────────────────────────┤          │                │       │
+        │   origin    │                     │         origin         │ pathname │     search     │ hash  │
+        ├─────────────┴─────────────────────┴────────────────────────┴──────────┴────────────────┴───────┤
+        │                                              href                                              │
+        └────────────────────────────────────────────────────────────────────────────────────────────────┘ 
+        
+        sourse of the diagram `https://nodejs.org/api/url.html`
+    
+    url
+
+        module to work with urls
+
+        parse
+
+            to parse the url from the string
+
+            to parse the url query you should passs `true` as the second parametr
+            
+            there is a property `query` to access parsed query of the url and that contains
+            elements of the query
+
+        format
+
+            to form a string from the url object
+
+    querystring
+
+        module to work with queries
+
+        parse
+
+            to parse the query string to the object
+
+        stringify
+
+            to convert string query from the object with properties
+
+    

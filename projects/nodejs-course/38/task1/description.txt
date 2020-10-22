@@ -1,0 +1,3 @@
+Create the script to fix files in a directory.
+Each file has its data duplicated.
+Truncate each file in a half.

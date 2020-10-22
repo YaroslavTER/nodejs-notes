@@ -1,6 +1,10 @@
 
     node has specific module to work with HTTP called `http`. You can require it and create the server using `.createServer()`
 
+    to get all of the status codes you have to execute `http.STATUS_CODES`
+
+    to make request on the server in the terminal you should execute `curl -i localhost:8000/`
+
     createServer()
 
         is an event emmiter
@@ -41,3 +45,4 @@
         timeout
 
             you can specify timeout for the server by assigning the numeric value to this property
+

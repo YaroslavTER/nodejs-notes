@@ -1,0 +1,42 @@
+
+    work with the operating system
+
+        os
+
+            provides functions to get information about operating system
+
+            cpus
+    
+                to get information about server's CPUs
+
+            networkInterfaces
+
+                returns an object containing network interfaces that have been assigned a network address
+
+            freeemem
+
+                information about free memory
+
+            type
+
+                what operation system was node compiled for
+
+            release
+
+                release version of the operating system
+
+            userInfo
+
+                returns information about current user
+
+            constants
+
+                returns an object that contains all of the operating system error codes and process signals
+
+                signals
+
+                    quick way to see the reference of all process signals awailable in the underlying OS
+
+        fs
+
+            provides simple system i/o functions. All of the `fs` functions have both asyncronous and syncronous forms
