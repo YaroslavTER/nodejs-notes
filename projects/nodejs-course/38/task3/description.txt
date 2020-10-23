@@ -1,0 +1,4 @@
+Watch a directory and report 3 events of a file:
+  - added
+  - removed
+  - changed

@@ -1,0 +1,2 @@
+Script to clean old files in a directory.
+Anyting older than 7 days should be deleted.
