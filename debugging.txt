@@ -1,0 +1,43 @@
+
+  debugging
+
+    supports single stepping, breakpoings, watchers etc
+
+    to debug in the chrome open:
+      
+      1. enter `node --inspect-brk index.js` in the console
+
+      2. opent `chrome://inspect` in the chrome
+
+    to activate debug mode you to enter command `node debug index.js` in the
+    command line
+
+    node debug index.js
+
+      the script execution will be stopped at the first function call
+
+      cont (c)
+
+        resume the execution
+
+      restart
+
+        to restart execution once it reches the end
+
+      setBreakpoint (sb)
+
+        recieves the numeric argument of the line to set the break point at
+
+      repl
+
+        debug `repl` that works like `exec`
+
+      watch
+
+        starts watching an expression passed throught the argument
+
+      list
+
+        prints the source code arond the current line of the execution.
+        The numeric argument says how many lines should be displayed before
+        and after the current line

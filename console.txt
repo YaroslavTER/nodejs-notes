@@ -1,0 +1,106 @@
+
+  console
+
+    matches to the web browser console object
+
+    log
+
+      uses `util` module under the hood to format and output the message with a new line.
+      On `console.log` of objects the `util.inspect` will be called to write to the `stdout`
+
+      ```javascript
+      console.log('Log %s', 'message');
+      ```
+
+      printf formatting
+
+        you can use `printf` formatting in the `console.log`
+
+        %d
+
+          number
+
+        %s
+
+          string
+
+        %j
+
+          JSON object
+    dir
+
+      `inspect` with options to output throught `stdout`
+
+    info
+
+      alias to the `console.log`
+
+    error
+
+      behaves in the same way as the `console.log` but writes to the `stderror` instead
+      to the `stdout`
+
+    warn
+
+      alias to the `console.error`
+
+    assert
+
+      to test if the arguments are `true` and throws an error if it's not
+
+    trace
+
+      behaves in the way `console.error` does but it also prints a callstack at the point
+      where it is placed
+
+    time
+
+      starts timers
+
+    timeEnd
+
+      stops timers to report durection of the operation
+
+  assert (module)
+
+    ifError
+
+      throws a value if the value is truthy 
+
+  util
+
+    format
+
+      `printf` output format
+
+    inspect
+
+      objects output. To controll the output pass the options as an objetc to the second
+      parameter
+
+      options parameter
+
+        depth
+
+          controlls the depth of object displaying
+    
+    debuglog
+
+      conditionally write messages to `stderror` based on existence of the node debug
+      environment variable
+
+    deprecate
+
+      to mark the function as deprecated
+
+    inherits
+
+      was used before es6 classes to inherit prototype methods from one constructor
+      to another. With es6 classes it's not longer needed or recommended
+
+  Console
+    
+    there is class configured in the way that you can write in any node js stream.
+    `console` already configured to write to `std out` and `std error`. If you want
+    to write to any onther stream except `stdout` and `stderror` you can instantiate
+    the object from `console.Console`
