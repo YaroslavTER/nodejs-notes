@@ -3,41 +3,54 @@
 
     supports single stepping, breakpoings, watchers etc
 
-    to debug in the chrome open:
+    chrome:
       
-      1. enter `node --inspect-brk index.js` in the console
+        1. enter `node --inspect-brk index.js` in the console
 
-      2. opent `chrome://inspect` in the chrome
+        2. opent `chrome://inspect` in the chrome
 
-    to activate debug mode you to enter command `node debug index.js` in the
-    command line
+    vscode:
 
-    node debug index.js
+        1. on debugging tab open `Add configuration...`
 
-      the script execution will be stopped at the first function call
+        2. select `Attach by Process ID`
 
-      cont (c)
+        3. run the node script
 
-        resume the execution
+        4. run debugging mode and choose previously running node script
+        from the process list
 
-      restart
+    termial:
 
-        to restart execution once it reches the end
+        to activate debug mode you to enter command `node debug index.js` in the
+        command line
 
-      setBreakpoint (sb)
+        node debug index.js
 
-        recieves the numeric argument of the line to set the break point at
+          the script execution will be stopped at the first function call
 
-      repl
+          cont (c)
 
-        debug `repl` that works like `exec`
+            resume the execution
 
-      watch
+          restart
 
-        starts watching an expression passed throught the argument
+            to restart execution once it reches the end
 
-      list
+          setBreakpoint (sb)
 
-        prints the source code arond the current line of the execution.
-        The numeric argument says how many lines should be displayed before
-        and after the current line
+            recieves the numeric argument of the line to set the break point at
+
+          repl
+
+            debug `repl` that works like `exec`
+
+          watch
+
+            starts watching an expression passed throught the argument
+
+          list
+
+            prints the source code arond the current line of the execution.
+            The numeric argument says how many lines should be displayed before
+            and after the current line

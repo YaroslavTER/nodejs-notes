@@ -1,0 +1,170 @@
+
+  streams
+
+    collections of data that might not be available all at once and
+    don't have to fit in memory
+
+    all streams are instances of `EventEmitter`
+
+    types
+
+      readable
+
+        is an abstraction of a source from wich data can be consumed
+
+        `fs.createReadStream`
+
+        events
+
+          data
+
+            emitted whenewer the stream passes the chunk of data to the consumer
+
+          end
+
+            emitted when there is not mor data to be consumed from the stream
+
+          error
+
+          close
+
+          readable
+
+        functions
+
+          consume stream
+
+            pipe
+
+            unpipe
+
+
+            read
+
+            unshift
+
+            resume
+
+          pause
+
+          isPaused
+
+
+          setEncoding
+
+        mods
+
+          affects the way streams are consumed. They can be easily switched
+
+          paused
+
+            all of the readable streams start in this mode
+
+            `stream.read()`
+
+              to read from the stream
+
+          flowing
+
+            data continuesly flows and you need to listend to events to consume it.
+            The data can be lost if there is no consumers to handle it
+
+            EventEmitter
+
+          switching
+
+            Just adding the data event handler switches a paused stream into
+            flowing mode. And removing the handler switches it back to the paused
+            mode
+
+            `stream.resume()`
+
+              switch to the flowing mode
+
+            `stream.pause()`
+
+              switch to the paused mode
+
+      writable
+
+        is an abstraction for the destination to wich data can be written
+
+        `fs.createWriteStream`
+
+        events
+
+          drain
+
+            signal of that the writable stream can't recieve more data
+
+          finish
+
+            emitted when all of the data has been flushed to the underlying system
+
+          error
+
+          close
+
+
+          pipe
+
+          unpipe
+
+        functions
+
+          consume stream
+
+            write
+
+            end
+
+              call when done
+
+          cork
+
+          uncork
+
+
+          setDefaultEncoding
+
+      duplex
+
+        is both readable and writable
+
+        `next.Socket`
+
+      transform
+
+        duplex streams that can be used to modify or tarnsform the data
+
+        `zlib.createGzip`
+
+    pipe
+
+      to cusume the stream
+      
+      usage
+        
+        `src.pipe(dst)`
+
+      generally it's recomended to use pipe or events but don't mixe them
+
+      piping
+
+        you can chain pipes
+        
+          usage
+
+            `a.pipe(b).pipe(c).pipe(d)`
+
+    events
+
+      to cosume the streams in more cusom ways
+
+    implementing
+
+      are usual who use the `stream` module
+
+    consuming
+
+      use pipe or listend to the stream events
