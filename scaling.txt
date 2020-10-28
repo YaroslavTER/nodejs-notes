@@ -1,0 +1,27 @@
+
+  scaling
+
+    workload
+
+    availability
+
+    fault tolerance
+
+    strategies
+
+      cloning
+
+        clone it multiple times and have each cloned instance handle part
+        of the workload
+
+      decomposing
+
+        having multiple different applications with different code bases and
+        sometimes with their own dedicated databases and user interfaces.
+        This strategy is assosiated with the term microservice
+
+      splitting
+
+        to split the application ino multiple instances where each instance
+        is responsible for only a portion of the applications data.
+        Horizontal partitioning or shurting databases

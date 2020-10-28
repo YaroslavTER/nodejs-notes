@@ -1,0 +1,140 @@
+
+  child process
+
+    the `child_process` module enables us to accsess the operating system
+    functionality by running a system command inside the child process,
+    controll its imput stream and listening on its output stream. You can
+    controll the argument to pass to the command and you can handle the
+    output result
+
+               run command
+             --------------->   
+      Node                      Operating System
+                  output
+             <---------------
+
+    you can pipe the output because its representation is a stream
+
+    methods
+
+      spawn
+
+        result is the child process instance which implements `EventEmitter` api.
+
+        good choise if the data returned from the command is big, because that data
+        will be streamed with the standart io objects
+
+        options
+
+          stdio
+
+            you can make the child process inherit the standart io objects of its
+            parents by assigning `stdio` to `inherit`
+
+          shell
+
+            by default, this `spawn` does not creates a shell. To enable the `shell`
+            you have to set `shell` to `true`
+
+          cwd
+
+            changes working directory
+
+          env
+
+            to specify environment variables by assigning object to the `env` property
+            that will be visible to the new process. The default for its option is
+            `process.env` itself
+
+          detached
+
+            makes the child process run independently
+
+        events
+
+          exit
+
+            gives the exit `code` of the child process and a `signal` if any that
+            was used to terminate the child process. The `signal` is `null` if the
+            process exits normally
+          
+          disconnect
+
+            is triggered when the parent process manually calls the child disconnect
+            method
+
+          error
+
+            is triggered if the process could not be spawned or killed
+
+          message
+
+            is triggered when the child process uses the `process.send` method
+            to send messages. This is how parent child processes can communicate
+            with each other
+
+          close
+
+            is emitted when the standart io streams of a child process get closed
+
+      fork
+
+        is the variation of the `spawn` function for spawning the new processes.
+        The difference is that a communication channel is established to the child
+        processes when using `fork`. So you can use `send` method on the fork
+        process and the global processes object to exchange the messages between
+        parent and fork processes wihitng interface similar to `EventEmitter` module
+
+      exec
+
+        creates a shell and buffers the commands generated output and pass the whole
+        value to callback function
+
+        is a good choise if you need to use shell syntax and the data returned from the
+        command is not big. Because `exec` will buffer the whole data before it returns
+        it
+
+      execFile
+
+        to execute the file without using the shell
+
+      sync versions
+
+        soawnSync
+
+        forkSync
+
+        execSync
+
+        execFileSync
+    
+    io streams
+
+      when those streams get closed the child process that was using them will trigger
+      the `close` event. This event is different tha `exit` because multiple child
+      processes might share the same standart io streams and the child process exiting
+      does not mean that the stream is got closed. Since all streams are event emitters,
+      whe can listen to different events on those streams attached to every child process
+
+      unlike in a regular process, in a child process the standart out, standart error
+      streams are readable. While the standart in streamn is writtable
+
+      readable
+
+        stdout
+
+        stderror
+
+        events
+
+          data
+            
+            will have output of the command or any error encountered while executing
+            the command
+
+      writtable
+
+        stdin
+
+          can be used to send the command some input. The esiest way to consume it is
+          using the `pipe` function
