@@ -4,7 +4,7 @@
     the module can be used to enable load balancing over
     environment multiple CPU cores
 
-    knows how to imp lement clone scalability strategy
+    knows how to implement clone scalability strategy
     but only on one machine
 
     master process forks number of processes and manages
