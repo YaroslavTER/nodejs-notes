@@ -61,7 +61,7 @@
                                               |
                                     worker3 --
 
-      master process memory container
+      sticky load balancing
 
                                                   worker1 -> memory1 
 

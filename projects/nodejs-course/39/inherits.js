@@ -5,7 +5,7 @@ const EventEmitter = require('events');
 
 function CustomEmitter() {}
 
-util.unherits(CustomEmitter, EventEmitter);
+util.inherits(CustomEmitter, EventEmitter);
 
 CustomEmitter.prototype.write = function (data) {
   this.emit('data', data);

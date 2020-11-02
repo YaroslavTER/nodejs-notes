@@ -19,5 +19,5 @@ if (cluster.isMaster) {
     }
   });
 } else {
-  require('../2/server');
+  require('./server');
 }

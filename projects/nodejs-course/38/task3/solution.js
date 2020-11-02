@@ -9,7 +9,7 @@ const log = (message) => console.log(`${new Date().toUTCString()}: ${message}`);
 fs.watch(dirname, (eventType, filename) => {
   /* 
     both add and delete events are reported
-    under the `watch` as renamve event type
+    under the `watch` as rename event type
   */
   if (eventType === 'rename') {
     const index = currentFileList.indexOf(filename);
