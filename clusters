@@ -1,0 +1,70 @@
+
+  cluster
+
+    the module can be used to enable load balancing over
+    environment multiple CPU cores
+
+    knows how to imp lement clone scalability strategy
+    but only on one machine
+
+    master process forks number of processes and manages
+    them
+
+                      worker1
+
+    master process    worker2
+
+                      worker3
+
+    each worker represents the instance of the application
+    that you want to scale
+
+    all incoming requests are handled by master process and
+    the master process is the one who desides which worker
+    process should handle the incoming requests
+
+    the master process uses Round-robing algoritm to pick
+    the process. It's enabled by default on all platforms
+    except Windows and can be globally modified to let the
+    load balancing be handled by the operating system itself
+
+    the Round-robin algoritm distributes the load evenly
+    across all available processes on the rotational bases.
+    The first request is forwarded to the first worker
+    process, the second to the next one and so on. And when
+    the end of the list is reached the algorithm starts
+    again from the beginning. This is the simplest load
+    balancing algorithm but not the only one
+
+    availability
+
+      to measure availability you can run the following
+      command in the console
+
+      `ab -c200 -t10 http://localhost:8080/`
+
+    shared state
+
+      original
+
+                                    worker1 -> memory1 
+
+        request -> master process   worker2 -> memory2
+
+                                    worker3 -> memory3
+
+      shared memory
+
+                                    worker1 --
+                                              |
+        request -> master process   worker2 -- -> memory
+                                              |
+                                    worker3 --
+
+      master process memory container
+
+                                                  worker1 -> memory1 
+
+        request -> master process -> memory ->    worker2 -> memory2
+
+                                                  worker3 -> memory3
