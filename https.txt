@@ -16,7 +16,7 @@
         to generate certificate you can use OpenSSL tool
 
             OpenSSL allows to generate a private key, we can have it encrypted or not encrypted and it allows to generate a certificate
-            signing request and then self sign certificate to test it. The broser will not trust selfmade certificate, but it's good for
+            signing request and then self sign certificate to test it. The browser will not trust selfmade certificate, but it's good for
             testing purposes
 
             command for private key and certificate generation

@@ -22,7 +22,7 @@
 
           end
 
-            emitted when there is not mor data to be consumed from the stream
+            emitted when there is not more data to be consumed from the stream
 
           error
 
@@ -62,7 +62,7 @@
 
             `stream.read()`
 
-              to read from the stream
+            to read from the stream
 
           flowing
 

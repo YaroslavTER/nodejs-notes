@@ -111,7 +111,7 @@
     io streams
 
       when those streams get closed the child process that was using them will trigger
-      the `close` event. This event is different tha `exit` because multiple child
+      the `close` event. This event is different than `exit` because multiple child
       processes might share the same standart io streams and the child process exiting
       does not mean that the stream is got closed. Since all streams are event emitters,
       whe can listen to different events on those streams attached to every child process
